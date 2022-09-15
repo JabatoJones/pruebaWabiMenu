@@ -1,0 +1,98 @@
+<pre>{{categoriesOrdered | json}}</pre>
+<button mat-flat-button color="primary" [matMenuTriggerFor]="primaryLvlMenu">Categorias</button>
+
+<mat-menu #primaryLvlMenu="matMenu">
+  <ng-template matMenuContent>
+    <button mat-menu-item
+     *ngFor="let primaryCategory of categoriesOrdered; let i = index;"
+     [matMenuTriggerFor]="secondLvlMenu"
+     [matMenuTriggerData]="{ submenu: primaryCategory.subMenu,
+       primaryCategory: primaryCategory.name }">
+       {{primaryCategory.name}}
+    </button>
+  </ng-template>
+</mat-menu>
+
+<mat-menu #secondLvlMenu="matMenu">
+  <ng-template matMenuContent
+    let-submenu="submenu"
+    let-primaryCategory="primaryCategory">
+    <button mat-menu-item *ngFor="let item of submenu;"
+     [matMenuTriggerFor]="threeLvlMenu"
+     [matMenuTriggerData]="{ subItemMenu: item.subMenu,
+       item: item.name,
+       primaryCategory: primaryCategory }">
+       {{item.name}}
+    </button>
+  </ng-template>
+</mat-menu>
+
+<mat-menu #threeLvlMenu="matMenu">
+  <ng-template matMenuContent
+  let-subItemMenu="subItemMenu"
+   let-item="item"
+    let-primaryCategory="primaryCategory">
+    <button mat-menu-item *ngFor="let item of subItemMenu;"
+    [matMenuTriggerFor]="fourLvlMenu"
+     [matMenuTriggerData]="{ subItemMenu: item.subMenu,
+       item: item.name,
+       primaryCategory: primaryCategory }">
+       {{item.name}}</button>
+  </ng-template>
+</mat-menu>
+
+<mat-menu #fourLvlMenu="matMenu">
+  <ng-template matMenuContent
+  let-subItemMenu="subItemMenu"
+   let-item="item"
+    let-primaryCategory="primaryCategory">
+    <button mat-menu-item *ngFor="let item of subItemMenu"
+    [matMenuTriggerFor]="fiveLvlMenu"
+    [matMenuTriggerData]="{ subItemMenu: item.subMenu,
+        item: item.name,
+        primaryCategory: primaryCategory }">
+        {{item.name}}</button>
+   </ng-template>
+ </mat-menu>
+
+ <mat-menu #fiveLvlMenu="matMenu">
+  <ng-template matMenuContent
+  let-subItemMenu="subItemMenu"
+   let-item="item"
+    let-primaryCategory="primaryCategory">
+    <button mat-menu-item *ngFor="let item of subItemMenu"
+    [matMenuTriggerFor]="sixLvlMenu"
+    [matMenuTriggerData]="{ subItemMenu: item.subMenu,
+        item: item.name,
+        primaryCategory: primaryCategory }">
+        {{item.name}}</button>
+   </ng-template>
+ </mat-menu>
+
+ <mat-menu #sixLvlMenu="matMenu">
+  <ng-template matMenuContent
+  let-subItemMenu="subItemMenu"
+   let-item="item"
+    let-primaryCategory="primaryCategory">
+    <button mat-menu-item *ngFor="let item of subItemMenu"
+    [matMenuTriggerFor]="sevenLvlMenu"
+    [matMenuTriggerData]="{ subItemMenu: item.subMenu,
+        item: item.name,
+        primaryCategory: primaryCategory }">
+        {{item.name}}</button>
+   </ng-template>
+ </mat-menu>
+
+<mat-menu #sevenLvlMenu="matMenu">
+  <ng-template matMenuContent
+  let-subItemMenu="subItemMenu"
+   let-item="item"
+    let-primaryCategory="primaryCategory">
+    <button mat-menu-item *ngFor="let item of subItemMenu;">
+       {{item.name}}</button>
+  </ng-template>
+</mat-menu>
+
+<!-- Copyright 2020 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
