@@ -1,5 +1,10 @@
 # PruebaWabiMenu
+It is required to make a nested menu* using Angular (version 9 or higher) using the following category tree detailed below
+(it could have more levels of depth in the future)
+Category tree in : `src\assets\menu-data.ts`
+Logic of the exercise in : `app-menu && app-root`
 
+## Generated With
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4.
 
 ## Development server
