@@ -1,1 +1,3 @@
-<app-menu></app-menu>
+<pre>{{categoriesOrdered | json }}</pre>
+<button mat-button [matMenuTriggerFor]="panel.menu">{{menuLiteral}}</button>
+<app-menu #panel [items]="categoriesOrdered"></app-menu>
